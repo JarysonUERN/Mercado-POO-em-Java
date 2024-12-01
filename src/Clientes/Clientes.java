@@ -10,7 +10,7 @@ public class Clientes {
     private List<String> metodosPagamento; // Exemplo: ["Cartão", "Dinheiro"]
     private List<String> historicoCompras; // Lista de IDs de produtos comprados
 
-    public Cliente(String id, String nome, String email) {
+    public Clientes(String id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;

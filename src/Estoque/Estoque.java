@@ -1,14 +1,13 @@
 package Estoque;
+
 import com.fasterxml.jackson.databind.ObjectMapper.*;
-
-import produto.Produto;
-
 import com.fasterxml.jackson.core.type.TypeReference.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import produto.Produto;
 
 public class Estoque {
     private List<Produto> produtos;
