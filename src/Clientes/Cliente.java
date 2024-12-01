@@ -3,14 +3,14 @@ package Clientes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Clientes {
+public class Cliente {
      private String id;
     private String nome;
     private String email;
     private List<String> metodosPagamento; // Exemplo: ["Cartão", "Dinheiro"]
     private List<String> historicoCompras; // Lista de IDs de produtos comprados
 
-    public Clientes(String id, String nome, String email) {
+    public Cliente(String id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;

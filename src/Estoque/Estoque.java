@@ -1,7 +1,7 @@
 package Estoque;
 
-import com.fasterxml.jackson.databind.ObjectMapper.*;
-import com.fasterxml.jackson.core.type.TypeReference.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import produto.Produto;
 
 public class Estoque {
     private List<Produto> produtos;
-    private static final String FILE_PATH = "Jsons-Controller/estoque.json"; // Caminho relativo para o arquivo JSON
+    private static final String FILE_PATH = "Jsons-Data/estoque.json";
 
     public Estoque() {
         this.produtos = carregarEstoque();
@@ -47,18 +47,36 @@ public class Estoque {
         System.out.println("Produto adicionado ao estoque: " + produto);
     }
 
+    public boolean removerProduto(String idProduto, int quantidade) {
+        Produto produto = buscarProdutoPorId(idProduto);
+        if (produto != null) {
+            if (produto.getQuantidade() >= quantidade) {
+                produto.setQuantidade(produto.getQuantidade() - quantidade);
+                salvarEstoque();
+                System.out.println("Quantidade removida do produto: " + produto);
+                return true;
+            } else {
+                System.out.println("Estoque insuficiente para o produto: " + produto);
+                return false;
+            }
+        }
+        return false;
+    }
+
+    public Produto buscarProdutoPorId(String idProduto) {
+        for (Produto produto : produtos) {
+            if (produto.getId().equals(idProduto)) {
+                return produto;
+            }
+        }
+        System.out.println("Produto com ID " + idProduto + " não encontrado no estoque.");
+        return null;
+    }
+
     public void exibirEstoque() {
         System.out.println("\nProdutos disponíveis no estoque:");
         for (Produto produto : produtos) {
             System.out.println(produto);
         }
     }
-}
-
-public boolean removerProduto(Produto produto, int quantidade) {
-    if (produtos.containsKey(produto) && produtos.get(produto) >= quantidade) {
-        produtos.put(produto, produtos.get(produto) - quantidade);
-        return true;
-    }
-    return false;
 }

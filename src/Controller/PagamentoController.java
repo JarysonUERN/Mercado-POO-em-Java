@@ -17,7 +17,7 @@ public class PagamentoController {
 
     // Inicializar métodos de pagamento disponíveis
     private void inicializarMetodosPagamento() {
-        adicionarMetodoPagamento("Cartão", new PagamentoCartao(20000 , null, null, null, null));
+        adicionarMetodoPagamento("Cartão", new PagamentoCartao(20000 , "123456", "João Pedro", "12/4", "123"));
         adicionarMetodoPagamento("Dinheiro", new PagamentoDinheiro(3333, 1));
     }
 

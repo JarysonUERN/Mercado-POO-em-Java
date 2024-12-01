@@ -1,22 +1,26 @@
 package pagamentos;
-public class PagamentoDinheiro extends Pagamento {
-    private double valorRecebido;
 
-    public PagamentoDinheiro(double valorTotal, double valorRecebido) {
+public class PagamentoDinheiro extends Pagamento {
+    private double dinheiroDisponivel; // Montante disponível para pagamento
+
+    public PagamentoDinheiro(double valorTotal, double dinheiroDisponivel) {
         super(valorTotal);
-        this.valorRecebido = valorRecebido;
+        this.dinheiroDisponivel = dinheiroDisponivel;
     }
 
     @Override
-    public boolean processarPagamento() {
-        if (valorRecebido >= valorTotal) {
-            double troco = valorRecebido - valorTotal;
-            System.out.println("Pagamento em dinheiro aprovado no valor de R$" + valorTotal);
-            System.out.println("Troco: R$" + troco);
+    public boolean processarPagamento(double valor) {
+        if (valor <= dinheiroDisponivel) {
+            dinheiroDisponivel -= valor;
+            System.out.println("Pagamento em dinheiro aprovado! Troco: R$" + (dinheiroDisponivel));
             return true;
         } else {
-            System.out.println("Erro: Valor recebido insuficiente. Falta R$" + (valorTotal - valorRecebido));
+            System.out.println("Pagamento recusado! Dinheiro insuficiente.");
             return false;
         }
+    }
+
+    public double getDinheiroDisponivel() {
+        return dinheiroDisponivel;
     }
 }
