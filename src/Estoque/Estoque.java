@@ -54,3 +54,11 @@ public class Estoque {
         }
     }
 }
+
+public boolean removerProduto(Produto produto, int quantidade) {
+    if (produtos.containsKey(produto) && produtos.get(produto) >= quantidade) {
+        produtos.put(produto, produtos.get(produto) - quantidade);
+        return true;
+    }
+    return false;
+}
