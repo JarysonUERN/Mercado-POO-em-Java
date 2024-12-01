@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "nome": "João Silva",
+        "email": "joao.silva@example.com",
+        "metodosPagamento": ["Cartão de Crédito", "Dinheiro"],
+        "historicoCompras": ["P001", "P003", "P005"]
+    },
+    {
+        "id": "2",
+        "nome": "Maria Oliveira",
+        "email": "maria.oliveira@example.com",
+        "metodosPagamento": ["Pix"],
+        "historicoCompras": ["P002", "P004"]
+    },
+    {
+        "id": "3",
+        "nome": "Carlos Souza",
+        "email": "carlos.souza@example.com",
+        "metodosPagamento": ["Boleto", "Cartão de Débito"],
+        "historicoCompras": ["P006", "P007"]
+    }
+]
