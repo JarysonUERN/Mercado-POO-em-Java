@@ -13,14 +13,27 @@ ESTRUTURA DO PROJETO DE POO DE MERCADO:
 		bin: // Aqui ficam os arquivos fonte dos códigos quando compilados
 
 			 Classes feitas até agora:
+			Classes Controller;
+			Estoque;
+			Produto;
+			Classes de Pagamento, como cartao, Pix e Etc;
+			Classes CLiente;
+			App, que contém o Main
+			
 
 
 			TO DO LIST:
+			Implementar o Main do sistema;
+			Singletons;
+			Fazer a lib Jackson funcionar pra o sistema;
+			Escrever a sessão de src desse documento
 
 
 ************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-		Jsons-Controller: // aqui devem ficar os arquivos para controlar o histórico de produtos comprados, estoque do mercado, os itens, informações do cliente e dos cartões de crédito.
-		
+		Jsons-Data: // aqui devem ficar os arquivos para armazenados os dados do histórico de produtos comprados, estoque do mercado, os itens, informações do cliente e dos cartões de crédito.
+		estoque.json: // Contém os dados dos produtos disponiveis no estoque do sitema-Mercado
+		clientescontrolador.Json: // contém informações dos clientes e seus históricos de pagamento, último metodo utilizado e afins.
+		clientesBancarios.Json: // Aqui é onde os dados dos cartões de crédito e outros métodos de pagamentos de cada cliente ficam armazenados.
 
 ************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 
@@ -30,8 +43,25 @@ ESTRUTURA DO PROJETO DE POO DE MERCADO:
 			jackson-databind-2.18.2
 			jackson-annotations-2.18.2
 			jackson-core-2.18.2
-						/* As bibliotecas Jackson servem pra importar e exportar os arquivos do estoque, itens e etc do projeto como um arquivo .json. 
+						/* As bibliotecas Jackson servem pra importar e exportar (Serialização e Desserialização) dos arquivos do estoque, itens e etc do projeto como um arquivo .json. 
 						   Tambem o cadastro de cartoes de credito e cliente. Servem como uma espécie de "savegame" para o sistema, ja que armazena e processa as infos dos jsons no sistema. */
 
 
 ***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+
+		Src: // Aqui é onde ficam armazenados os códigos-fonte de cada uma das classes
+			
+			
+***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+
+		FUNCIONAMENTO DO SISTEMA:
+
+O sistema que desenvolvi tem como objetivo gerenciar o cadastro de clientes e produtos, permitindo o controle de estoque e o registro de compras.
+Cada cliente possui um histórico de compras, e os produtos são identificados de forma única, com informações como preço e quantidade disponível.
+O estoque é gerido pela classe Estoque, que utiliza a biblioteca Jackson para ler e gravar dados em formato JSON. Quando um cliente decide comprar, 
+o SistemaController é responsável por buscar o produto, verificar a disponibilidade e atualizar o histórico de compras do cliente, além de ajustar o estoque. 
+O pagamento é gerido pelo PagamentoController, que oferece métodos como Cartão, Dinheiro e Pix, com validações específicas para cada um. 
+A persistência dos dados é feita por meio de arquivos JSON, o que torna o processo simples, mas há pontos que precisam ser melhorados.
+		
