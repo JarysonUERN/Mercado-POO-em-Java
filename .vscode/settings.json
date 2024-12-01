@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "c:\\Users\\User PC\\Downloads\\Sistema POO\\Mercado em POO java\\lib\\jackson-databind-2.18.2.jar",
+        "c:\\Users\\User PC\\Downloads\\Sistema POO\\Mercado em POO java\\lib\\jackson-annotations-2.18.2.jar",
+        "c:\\Users\\User PC\\Downloads\\Sistema POO\\Mercado em POO java\\lib\\jackson-core-2.18.2.jar"
+    ]
+}

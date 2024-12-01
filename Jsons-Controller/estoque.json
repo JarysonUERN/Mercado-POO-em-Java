@@ -1,0 +1,53 @@
+[
+    {
+      "id": 222222,
+      "nome": "Arroz",
+      "preco": 6.0
+    },
+    {
+      "id": 123456,
+      "nome": "Feijão",
+      "preco": 7.8
+    },
+    {
+      "id": 333333,
+      "nome": "Macarrão",
+      "preco": 4.5
+    },
+    {
+      "id": 444444,
+      "nome": "Azeite de Oliva",
+      "preco": 20.0
+    },
+    {
+      "id": 555555,
+      "nome": "Sal",
+      "preco": 1.5
+    },
+    {
+      "id": 666666,
+      "nome": "Açúcar",
+      "preco": 3.2
+    },
+    {
+      "id": 777777,
+      "nome": "Café",
+      "preco": 12.0
+    },
+    {
+      "id": 888888,
+      "nome": "Leite",
+      "preco": 5.5
+    },
+    {
+      "id": 999999,
+      "nome": "Farinha de Trigo",
+      "preco": 4.0
+    },
+    {
+      "id": 100000,
+      "nome": "Óleo de Soja",
+      "preco": 8.5
+    }
+  ]
+  

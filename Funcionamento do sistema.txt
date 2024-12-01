@@ -1,0 +1,34 @@
+ESTRUTURA DO PROJETO DE POO DE MERCADO:
+
+
+
+	Sistema POO > Mercado JAVA:
+	folders:
+		.vscode:
+			settings.json
+			launch.json   // Os arquivos launch e settings controlam as configuraçoes do sistema, tipo, a manipulação dos arquivos para a pasta bin, source e etc.
+
+
+*****************************************************************************************************************************************************
+		bin: // Aqui ficam os arquivos fonte dos códigos quando compilados
+
+			 Classes feitas até agora:
+
+
+			TO DO LIST:
+
+
+*****************************************************************************************************************************************************
+		Jsons-Controller: // aqui devem ficar os arquivos para controlar o histórico de produtos comprados, estoque do mercado, os itens, informações do cliente e dos cartões de crédito.
+		
+
+*****************************************************************************************************************************************************
+
+		lib: // aqui ficam as bibliotecas usadas no projeto
+
+		
+			jackson-databind-2.18.2
+			jackson-annotations-2.18.2
+			jackson-core-2.18.2
+						/* As bibliotecas Jackson servem pra importar e exportar os arquivos do estoque, itens e etc do projeto como um arquivo .json. 
+						   Tambem o cadastro de cartoes de credito e cliente. Servem como uma espécie de "savegame" para o sistema, ja que armazena e processa as infos dos jsons no sistema. */
