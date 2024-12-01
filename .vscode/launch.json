@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "java",
+            "type": "Java",
             "name": "Executar Projeto",
             "request": "launch",
             "mainClass": "pacote.Main",
