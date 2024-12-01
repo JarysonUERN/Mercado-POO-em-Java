@@ -11,8 +11,8 @@ public class ClienteController {
     }
 
     // Cadastrar cliente
-    public void cadastrarCliente(String id, String nome, String email) {
-        Cliente cliente = new Cliente(id, nome, email);
+    public void cadastrarCliente(String id, String nome, String email, String banco, String tipoPix, String chavePix, String dadosBancarios) {
+        Cliente cliente = new Cliente(id, nome, email, tipoPix, chavePix, banco, dadosBancarios);
         gerenciadorClientes.cadastrarCliente(cliente);
     }
 

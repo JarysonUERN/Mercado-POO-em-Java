@@ -31,7 +31,7 @@ public class GerenciadorClientes {
         return new ArrayList<>();
     }
 
-    private void salvarClientes() {
+    public void salvarClientes() {
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writerWithDefaultPrettyPrinter().writeValue(new File(FILE_PATH), clientes);

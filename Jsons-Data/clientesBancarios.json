@@ -1,0 +1,44 @@
+[
+    {
+        "clienteId": "1",
+        "plataformaBancaria": "Nubank",
+        "cartoes": [
+            {
+                "numeroCartao": "1234 5678 9876 5432",
+                "bandeira": "Mastercard",
+                "validade": "12/25",
+                "nomeTitular": "João Silva"
+            },
+            {
+                "numeroCartao": "4321 8765 2345 6789",
+                "bandeira": "Visa",
+                "validade": "10/24",
+                "nomeTitular": "João Silva"
+            }
+        ]
+    },
+    {
+        "clienteId": "2",
+        "plataformaBancaria": "Picpay",
+        "cartoes": [
+            {
+                "numeroCartao": "1234 9876 5432 8765",
+                "bandeira": "Visa",
+                "validade": "05/26",
+                "nomeTitular": "Maria Oliveira"
+            }
+        ]
+    },
+    {
+        "clienteId": "3",
+        "plataformaBancaria": "Itaú",
+        "cartoes": [
+            {
+                "numeroCartao": "6789 1234 5678 9876",
+                "bandeira": "Mastercard",
+                "validade": "09/24",
+                "nomeTitular": "Carlos Souza"
+            }
+        ]
+    }
+]
