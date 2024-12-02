@@ -7,21 +7,21 @@ public class ClienteBancario {
     private String plataformaBancaria;
     private List<Cartao> cartoes;
 
-    public ClienteBancario(String clienteId, String plataformaBancaria, List<Cartao> cartoes) {
+    protected  ClienteBancario(String clienteId, String plataformaBancaria, List<Cartao> cartoes) {
         this.clienteId = clienteId;
         this.plataformaBancaria = plataformaBancaria;
         this.cartoes = cartoes;
     }
 
-    public String getClienteId() {
+    protected String getClienteId() {
         return clienteId;
     }
 
-    public String getPlataformaBancaria() {
+    protected String getPlataformaBancaria() {
         return plataformaBancaria;
     }
 
-    public List<Cartao> getCartoes() {
+    protected List<Cartao> getCartoes() {
         return cartoes;
     }
 
