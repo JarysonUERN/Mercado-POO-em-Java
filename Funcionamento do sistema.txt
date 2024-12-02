@@ -52,33 +52,7 @@ ESTRUTURA DO PROJETO DE POO DE MERCADO:
 
 
 		Src: // Aqui é onde ficam armazenados os códigos-fonte de cada uma das classes.
-			
-			
-***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-
-
-		FUNCIONAMENTO DO SISTEMA:
-
-O sistema que desenvolvi tem como objetivo gerenciar o cadastro de clientes e produtos, permitindo o controle de estoque e o registro de compras.
-Cada cliente possui um histórico de compras, e os produtos são identificados de forma única, com informações como preço e quantidade disponível.
-O estoque é gerido pela classe Estoque, que utiliza a biblioteca Jackson para ler e gravar dados em formato JSON. Quando um cliente decide comprar, 
-o SistemaController é responsável por buscar o produto, verificar a disponibilidade e atualizar o histórico de compras do cliente, além de ajustar o estoque. 
-O pagamento é gerido pelo PagamentoController, que oferece métodos como Cartão, Dinheiro e Pix, com validações específicas para cada um. 
-A persistência dos dados é feita por meio de arquivos JSON, o que torna o processo simples, mas há pontos que precisam ser melhorados.
-
-
-* Cadastro de Clientes e Produtos: O sistema permite o cadastro de clientes e a inserção de produtos no estoque. Cada cliente tem um histórico de compras, e cada produto é identificado por um ID único, com preço e quantidade disponíveis.
-
-* Estoque: O estoque é gerido pela classe Estoque, que carrega dados de produtos de um arquivo JSON e permite adicionar, remover ou buscar produtos. O SistemaController interage com o Estoque para realizar operações como vendas.
-
-* Venda de Produtos: Quando um cliente decide realizar uma compra, o SistemaController gerencia o processo. Ele verifica se o produto está disponível no estoque, atualiza o histórico de compras do cliente e realiza o pagamento.
-
-* Processamento de Pagamentos: O pagamento pode ser feito de várias formas (Cartão, Dinheiro, Pix). O PagamentoController processa as transações, verificando se os métodos de pagamento são válidos e se o valor é suficiente.
-
-* Persistência e JSON: O uso de arquivos JSON para armazenar e recuperar dados facilita a persistência de informações entre sessões. Contudo, esse método pode ser aprimorado para garantir maior integridade e segurança dos dados.
-
-
-# Um pouco sobre cada classe:
+			# Um pouco sobre cada classe:
 
 1. SistemaController
 Função: É o "cérebro" do sistema, gerenciando as interações entre as outras classes. Ele coordena o processo de venda, verificando o estoque, o pagamento e atualizando os históricos de clientes.
@@ -119,7 +93,31 @@ Visibilidade: O atributo chavePix é private, garantindo a privacidade da chave 
 13. PagamentoDinheiro
 Função: Representa o pagamento em dinheiro. Calcula o troco a ser devolvido ao cliente.
 Visibilidade: Os atributos relacionados ao pagamento em dinheiro, como valorRecebido e troco, são private para garantir que não sejam acessados diretamente.
-		
+			
+***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+
+
+		FUNCIONAMENTO DO SISTEMA:
+
+O sistema que desenvolvi tem como objetivo gerenciar o cadastro de clientes e produtos, permitindo o controle de estoque e o registro de compras.
+Cada cliente possui um histórico de compras, e os produtos são identificados de forma única, com informações como preço e quantidade disponível.
+O estoque é gerido pela classe Estoque, que utiliza a biblioteca Jackson para ler e gravar dados em formato JSON. Quando um cliente decide comprar, 
+o SistemaController é responsável por buscar o produto, verificar a disponibilidade e atualizar o histórico de compras do cliente, além de ajustar o estoque. 
+O pagamento é gerido pelo PagamentoController, que oferece métodos como Cartão, Dinheiro e Pix, com validações específicas para cada um. 
+A persistência dos dados é feita por meio de arquivos JSON, o que torna o processo simples, mas há pontos que precisam ser melhorados.
+
+
+* Cadastro de Clientes e Produtos: O sistema permite o cadastro de clientes e a inserção de produtos no estoque. Cada cliente tem um histórico de compras, e cada produto é identificado por um ID único, com preço e quantidade disponíveis.
+
+* Estoque: O estoque é gerido pela classe Estoque, que carrega dados de produtos de um arquivo JSON e permite adicionar, remover ou buscar produtos. O SistemaController interage com o Estoque para realizar operações como vendas.
+
+* Venda de Produtos: Quando um cliente decide realizar uma compra, o SistemaController gerencia o processo. Ele verifica se o produto está disponível no estoque, atualiza o histórico de compras do cliente e realiza o pagamento.
+
+* Processamento de Pagamentos: O pagamento pode ser feito de várias formas (Cartão, Dinheiro, Pix). O PagamentoController processa as transações, verificando se os métodos de pagamento são válidos e se o valor é suficiente.
+
+* Persistência e JSON: O uso de arquivos JSON para armazenar e recuperar dados facilita a persistência de informações entre sessões. Contudo, esse método pode ser aprimorado para garantir maior integridade e segurança dos dados.
+
+	
 
 DIAGRAMA UML DO SISTEMA:
 
