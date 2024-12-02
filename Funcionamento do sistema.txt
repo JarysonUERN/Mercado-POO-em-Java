@@ -120,3 +120,7 @@ Visibilidade: O atributo chavePix é private, garantindo a privacidade da chave 
 Função: Representa o pagamento em dinheiro. Calcula o troco a ser devolvido ao cliente.
 Visibilidade: Os atributos relacionados ao pagamento em dinheiro, como valorRecebido e troco, são private para garantir que não sejam acessados diretamente.
 		
+
+DIAGRAMA UML DO SISTEMA:
+
+https://drive.google.com/file/d/1rwmXRz9eAU3LMRMMsjbmzs4RusQi6QAD/view?usp=sharing
