@@ -34,3 +34,11 @@ public class ClienteBancario {
                 '}';
     }
 }
+
+
+    public class CartaoOperacao{
+        this.cartao.get.pagamento;
+
+
+
+    }
