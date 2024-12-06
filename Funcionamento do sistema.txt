@@ -25,12 +25,13 @@ ESTRUTURA DO PROJETO DE POO DE MERCADO:
 			TO DO LIST:
 			Implementar o Main do sistema;
 			Singletons;
-			Fazer a lib Jackson funcionar pra o sistema;
-			Escrever a sessão de src desse documento.
+			Fazer a lib Jackson funcionar;
+			Escrever a seção de src desse documento.
 
 
 ************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
-		Jsons-Data: // aqui devem ficar os arquivos para armazenados os dados do histórico de produtos comprados, estoque do mercado, os itens, informações do cliente e dos cartões de crédito.
+		Jsons-Data: // aqui devem ficar os arquivos para armazenados os dados do histórico de produtos comprados, estoque do mercado, os itens, informações do cliente e dos 
+                cartões de crédito.
 		estoque.json: // Contém os dados dos produtos disponiveis no estoque do sitema-Mercado
 		clientescontrolador.Json: // contém informações dos clientes e seus históricos de pagamento, último metodo utilizado e afins.
 		clientesBancarios.Json: // Aqui é onde os dados dos cartões de crédito e outros métodos de pagamentos de cada cliente ficam armazenados.
@@ -51,7 +52,47 @@ ESTRUTURA DO PROJETO DE POO DE MERCADO:
 
 
 		Src: // Aqui é onde ficam armazenados os códigos-fonte de cada uma das classes.
-			
+			# Um pouco sobre cada classe:
+
+1. SistemaController
+Função: É o "cérebro" do sistema, gerenciando as interações entre as outras classes. Ele coordena o processo de venda, verificando o estoque, o pagamento e atualizando os históricos de clientes.
+Visibilidade: Os atributos estoque e clientes são private para garantir que eles sejam manipulados somente dentro da classe. O método gerenciarVenda é public, pois precisa ser acessado de fora da classe.
+2. Estoque
+Função: Gerencia os produtos no estoque. Ele carrega e salva os produtos de/para um arquivo JSON e permite adicionar, remover ou buscar produtos.
+Visibilidade: O atributo produtos é private, garantindo que a lista de produtos não seja acessada diretamente. Os métodos adicionarProduto, removerProduto e buscarProduto são public, pois são chamados pelo SistemaController e outras classes que precisam acessar ou manipular os produtos.
+3. Produto
+Função: Representa os produtos no estoque. Cada produto possui um identificador único, nome, preço e quantidade.
+Visibilidade: Os atributos do produto, como id, nome, preco e quantidade, são private para proteger os dados e garantir que só possam ser acessados através dos métodos públicos (getters e setters).
+4. Cliente
+Função: Representa os clientes do sistema. Cada cliente possui um ID único, nome, e-mail, métodos de pagamento e histórico de compras.
+Visibilidade: Os atributos do cliente, como id, nome, historicoCompras e metodosPagamento, são private, pois são dados sensíveis que não devem ser acessados diretamente. Os métodos para adicionar compras ao histórico e adicionar métodos de pagamento são public, permitindo o gerenciamento de dados de forma controlada.
+5. ClienteBancario
+Função: Herda de Cliente e adiciona dados bancários, como uma lista de cartões. Permite gerenciar os cartões associados ao cliente.
+Visibilidade: O atributo cartoes é private para evitar que a lista seja modificada diretamente. Os métodos adicionarCartao e removerCartao são public, permitindo que cartões sejam adicionados ou removidos de forma controlada.
+6. Cartao
+Função: Representa um cartão de crédito ou débito de um cliente. Contém informações como número do cartão, nome do titular, validade, código de segurança e saldo.
+Visibilidade: Todos os atributos do Cartao são private por questões de segurança, especialmente o número do cartão e o código de segurança. A classe fornece métodos public para acessar dados específicos do cartão, como o número e o saldo.
+7. ClienteController
+Função: Gerencia as operações relacionadas ao cliente, como cadastro e busca. Facilita a interação com o GerenciadorClientes.
+Visibilidade: O atributo gerenciadorClientes é private, já que a classe deve controlar a manipulação dos dados dos clientes. Os métodos de cadastro e busca de clientes são public para serem acessíveis a partir de outras classes.
+8. GerenciadorClientes
+Função: Armazena e gerencia os dados dos clientes cadastrados. Ele carrega e salva os dados de clientes em arquivos JSON e oferece métodos para adicionar e buscar clientes.
+Visibilidade: O atributo clientes é private, pois a lista de clientes não deve ser acessada diretamente. Os métodos públicos permitem adicionar novos clientes e buscar clientes por ID.
+9. PagamentoController
+Função: Gerencia o processamento dos pagamentos. Verifica se o método de pagamento é válido e executa a transação.
+Visibilidade: O atributo pagamentos é private, já que os métodos de pagamento são controlados dentro da classe. O método realizarPagamento é public para permitir que outras classes solicitem o processamento de pagamentos.
+10. Pagamento (Abstrata)
+Função: Classe base para os tipos de pagamento. Define o método comum processarPagamento, que deve ser implementado por subclasses específicas.
+Visibilidade: O atributo valorTotal é protected para que as subclasses possam acessá-lo. O método processarPagamento é public, pois será chamado por outras classes para processar o pagamento.
+11. PagamentoCartao
+Função: Representa o pagamento via cartão de crédito ou débito. Verifica se o saldo do cartão é suficiente e realiza o pagamento.
+Visibilidade: Os atributos relacionados ao cartão, como saldoCartao, numeroCartao, nomeTitular, validade e codigoSeguranca, são private para garantir que essas informações sensíveis sejam acessadas de forma controlada.
+12. PagamentoPix
+Função: Representa o pagamento via Pix. Verifica se a chave Pix fornecida é válida e realiza o pagamento.
+Visibilidade: O atributo chavePix é private, garantindo a privacidade da chave usada para o pagamento via Pix.
+13. PagamentoDinheiro
+Função: Representa o pagamento em dinheiro. Calcula o troco a ser devolvido ao cliente.
+Visibilidade: Os atributos relacionados ao pagamento em dinheiro, como valorRecebido e troco, são private para garantir que não sejam acessados diretamente.
 			
 ***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
 
@@ -64,4 +105,20 @@ O estoque é gerido pela classe Estoque, que utiliza a biblioteca Jackson para l
 o SistemaController é responsável por buscar o produto, verificar a disponibilidade e atualizar o histórico de compras do cliente, além de ajustar o estoque. 
 O pagamento é gerido pelo PagamentoController, que oferece métodos como Cartão, Dinheiro e Pix, com validações específicas para cada um. 
 A persistência dos dados é feita por meio de arquivos JSON, o que torna o processo simples, mas há pontos que precisam ser melhorados.
-		
+
+
+* Cadastro de Clientes e Produtos: O sistema permite o cadastro de clientes e a inserção de produtos no estoque. Cada cliente tem um histórico de compras, e cada produto é identificado por um ID único, com preço e quantidade disponíveis.
+
+* Estoque: O estoque é gerido pela classe Estoque, que carrega dados de produtos de um arquivo JSON e permite adicionar, remover ou buscar produtos. O SistemaController interage com o Estoque para realizar operações como vendas.
+
+* Venda de Produtos: Quando um cliente decide realizar uma compra, o SistemaController gerencia o processo. Ele verifica se o produto está disponível no estoque, atualiza o histórico de compras do cliente e realiza o pagamento.
+
+* Processamento de Pagamentos: O pagamento pode ser feito de várias formas (Cartão, Dinheiro, Pix). O PagamentoController processa as transações, verificando se os métodos de pagamento são válidos e se o valor é suficiente.
+
+* Persistência e JSON: O uso de arquivos JSON para armazenar e recuperar dados facilita a persistência de informações entre sessões. Contudo, esse método pode ser aprimorado para garantir maior integridade e segurança dos dados.
+
+	
+
+DIAGRAMA UML DO SISTEMA:
+
+https://drive.google.com/file/d/1rwmXRz9eAU3LMRMMsjbmzs4RusQi6QAD/view?usp=sharing
