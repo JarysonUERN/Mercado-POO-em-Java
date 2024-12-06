@@ -13,8 +13,20 @@ public class Estoque {
     private List<Produto> produtos;
     private static final String FILE_PATH = "Jsons-Data/estoque.json";
 
-    public Estoque() {
+    // Instância única da classe Estoque
+    private static Estoque instancia;
+
+    // Construtor privado para impedir a criação direta de instâncias
+    private Estoque() {
         this.produtos = carregarEstoque();
+    }
+
+    // Método estático para acessar a instância única
+    public static synchronized Estoque getInstancia() {
+        if (instancia == null) {
+            instancia = new Estoque();
+        }
+        return instancia;
     }
 
     private List<Produto> carregarEstoque() {
