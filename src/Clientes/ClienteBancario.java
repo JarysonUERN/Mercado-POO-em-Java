@@ -1,4 +1,4 @@
-package Clientes;
+package clientes;
 
 import java.util.List;
 
@@ -13,15 +13,15 @@ public class ClienteBancario {
         this.cartoes = cartoes;
     }
 
-    protected String getClienteId() {
+    public String getClienteId() {
         return clienteId;
     }
 
-    protected String getPlataformaBancaria() {
+    public String getPlataformaBancaria() {
         return plataformaBancaria;
     }
 
-    protected List<Cartao> getCartoes() {
+    public List<Cartao> getCartoes() {
         return cartoes;
     }
 
@@ -31,46 +31,6 @@ public class ClienteBancario {
                 "clienteId='" + clienteId + '\'' +
                 ", plataformaBancaria='" + plataformaBancaria + '\'' +
                 ", cartoes=" + cartoes +
-                '}';
-    }
-}
-
-class Cartao {
-    private String numeroCartao;
-    private String bandeira;
-    private String validade;
-    private String nomeTitular;
-
-    public Cartao(String numeroCartao, String bandeira, String validade, String nomeTitular) {
-        this.numeroCartao = numeroCartao;
-        this.bandeira = bandeira;
-        this.validade = validade;
-        this.nomeTitular = nomeTitular;
-    }
-
-    public String getNumeroCartao() {
-        return numeroCartao;
-    }
-
-    public String getBandeira() {
-        return bandeira;
-    }
-
-    public String getValidade() {
-        return validade;
-    }
-
-    public String getNomeTitular() {
-        return nomeTitular;
-    }
-
-    @Override
-    public String toString() {
-        return "Cartao{" +
-                "numeroCartao='" + numeroCartao + '\'' +
-                ", bandeira='" + bandeira + '\'' +
-                ", validade='" + validade + '\'' +
-                ", nomeTitular='" + nomeTitular + '\'' +
                 '}';
     }
 }

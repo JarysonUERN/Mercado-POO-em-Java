@@ -1,19 +1,19 @@
-package Clientes;
+package clientes;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente {
-    private String id;                  // Identificador único do cliente
-    private String nome;                // Nome do cliente
-    private String email;               // E-mail do cliente
-    private List<String> metodosPagamento;  // Métodos de pagamento (ex: Cartão, Dinheiro)
-    private List<String> historicoCompras;  // Histórico de compras (IDs dos produtos)
+    public String id;                  // Identificador único do cliente
+    public String nome;                // Nome do cliente
+    public String email;               // E-mail do cliente
+    public List<String> metodosPagamento;  // Métodos de pagamento (ex: Cartão, Dinheiro)
+    public List<String> historicoCompras;  // Histórico de compras (IDs dos produtos)
     
     // Dados bancários
-    private String banco;               // Banco do cliente (ex: Nubank, PicPay, etc.)
-    private String tipoPix;             // Tipo de chave Pix (ex: CPF, e-mail, telefone, etc.)
-    private String chavePix;            // Chave Pix do cliente (ex: CPF, e-mail, telefone, etc.)
+    public String banco;               // Banco do cliente (ex: Nubank, PicPay, etc.)
+    public  String tipoPix;             // Tipo de chave Pix (ex: CPF, e-mail, telefone, etc.)
+    public String chavePix;            // Chave Pix do cliente (ex: CPF, e-mail, telefone, etc.)
     private String dadosBancarios;      // Informações adicionais do banco (ex: número da conta, agência, etc.)
 
     public Cliente(String id, String nome, String email, String banco, String tipoPix, String chavePix, String dadosBancarios) {

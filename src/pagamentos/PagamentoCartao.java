@@ -1,7 +1,7 @@
 package pagamentos;
 
-import Clientes.Cartao;
-import Clientes.ClienteBancario;
+import clientes.Cartao;
+import clientes.ClienteBancario;
 
 public class PagamentoCartao extends Pagamento {
     private double saldoCartao; // Saldo disponível no cartão

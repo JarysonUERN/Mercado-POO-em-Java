@@ -1,4 +1,4 @@
-package Clientes;
+package clientes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class GerenciadorClientes {
     private List<Cliente> clientes;
-    private static final String FILE_PATH = "Jsons-Data/clientescontrolador.json"; // Caminho para o arquivo JSON
+    private static final String FILE_PATH = "Jsons-Data/clientesDB.json"; // Caminho para o arquivo JSON
 
     public GerenciadorClientes() {
         this.clientes = carregarClientes();

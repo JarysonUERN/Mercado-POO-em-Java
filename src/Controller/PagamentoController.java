@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 
 import java.util.HashMap;
@@ -26,22 +26,25 @@ public class PagamentoController {
         System.out.println("Método de pagamento adicionado: " + nome);
     }
 
-    public void realizarPagamento(String metodo, double valor) {
+    public boolean realizarPagamento(String metodo, double valor) {
         Pagamento pagamento = pagamentos.get(metodo);
-
+    
         if (pagamento == null) {
             System.out.println("Método de pagamento inválido: " + metodo);
-            return;
+            return false; // Pagamento falhou porque o método é inválido
         }
-
+    
         boolean sucesso = pagamento.processarPagamento(valor);
-
+    
         if (sucesso) {
             System.out.println("Pagamento realizado com sucesso usando " + metodo + ". Valor: R$" + valor);
+            return true; // Pagamento bem-sucedido
         } else {
             System.out.println("Falha no pagamento usando " + metodo + ". Tente novamente.");
+            return false; // Pagamento falhou
         }
     }
+    
 
     public void listarMetodosPagamento() {
         System.out.println("\nMétodos de pagamento disponíveis:");

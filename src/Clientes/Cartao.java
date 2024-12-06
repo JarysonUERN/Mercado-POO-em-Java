@@ -1,11 +1,11 @@
-package Clientes;
+package clientes;
 
 public class Cartao{
-    private String numero;           // Número do cartão
-    private String nomeTitular;      // Nome do titular do cartão
-    private String validade;         // Validade do cartão (MM/AAAA)
-    private String codigoSeguranca;  // Código de segurança (CVV)
-    private double saldo;            // Saldo disponível no cartão
+    public  String numero;           // Número do cartão
+    public String nomeTitular;      // Nome do titular do cartão
+    public  String validade;         // Validade do cartão (MM/AAAA)
+    public String codigoSeguranca;  // Código de segurança (CVV)
+    public double saldo;            // Saldo disponível no cartão
 
     // Construtor
     public Cartao(String numero, String nomeTitular, String validade, String codigoSeguranca, double saldo) {

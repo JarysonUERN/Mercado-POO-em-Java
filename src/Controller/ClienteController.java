@@ -1,7 +1,7 @@
-package Controller;
+package controller;
 
-import Clientes.Cliente;
-import Clientes.GerenciadorClientes;
+import clientes.Cliente;
+import clientes.GerenciadorClientes;
 
 public class ClienteController {
     private GerenciadorClientes gerenciadorClientes;

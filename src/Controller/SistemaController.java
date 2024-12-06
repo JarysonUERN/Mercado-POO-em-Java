@@ -1,10 +1,12 @@
-package Controller;
+package controller;
 
-import Clientes.Cliente;
-import Estoque.Estoque;
-import produto.Produto;
 
+import clientes.Cliente;
+import estoque.Estoque;
 import java.util.List;
+import carrinho.Carrinho;
+import carrinho.ItemCarrinho;
+import produto.Produto;
 
 public class SistemaController {
     private Estoque estoque;
@@ -84,4 +86,27 @@ public class SistemaController {
             }
         }
     }
+
+    public void realizarCompra(String clienteId, Carrinho carrinho, String metodoPagamento) {
+    Cliente cliente = buscarClientePorId(clienteId);
+    if (cliente == null) {
+        System.out.println("Cliente não encontrado.");
+        return;
+    }
+
+    double total = carrinho.calcularTotal();
+    PagamentoController pagamentoController = new PagamentoController();
+    boolean pagamentoRealizado = pagamentoController.realizarPagamento(metodoPagamento, total);
+
+    if (pagamentoRealizado) {
+        // Atualizar estoque e histórico de compras do cliente
+        for (ItemCarrinho item : carrinho.getItens()) {
+            estoque.removerProduto(item.getProduto().getId(), item.getQuantidade());
+            cliente.adicionarCompraAoHistorico(String.valueOf(item.getProduto().getId()));
+        }
+        System.out.println("Compra realizada com sucesso!");
+    } else {
+        System.out.println("Falha no pagamento. Compra não realizada.");
+    }
+}
 }
